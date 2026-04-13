@@ -3,7 +3,8 @@
 export type Task = {
     id : number,
     task : string,
-    subtask : Task[]
+    subtask : Task[],
+    status : boolean
 }
 
 export type Auth = {

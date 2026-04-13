@@ -1,5 +1,6 @@
 import { useState } from "react"
 import useAuth from "../../AuthContext/useAuth"
+import { useNavigate } from "react-router-dom"
 
 const intialValue = {
     name : '',
@@ -11,14 +12,16 @@ export default function Login() {
 
     const [formData, setFormData] = useState(intialValue)
     const {setIsAuthenticated} = useAuth()
+    const Navigate = useNavigate()
 
     const handleSubmit = ( e : React.SubmitEvent<HTMLFormElement> ) => {
         e.preventDefault();
         console.log(formData)
         if(formData.name == "abc" && formData.password == '1234'){
              setIsAuthenticated(true)
+             Navigate('/dashboard')
         }
-
+    
     }
 
     const handleChange = (e : React.ChangeEvent<HTMLInputElement> ) => {
